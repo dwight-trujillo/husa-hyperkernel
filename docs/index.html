@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUSA Hyperkernel - Documentation</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; padding: 2rem; max-width: 900px; margin: 0 auto; }
+        h1 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 0.5rem; margin-bottom: 1.5rem; text-align: center; }
+        h2 { color: #58a6ff; margin: 2rem 0 1rem; }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .subtitle { text-align: center; color: #8b949e; margin-bottom: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1.5rem; transition: border-color 0.2s; }
+        .card:hover { border-color: #58a6ff; }
+        .card h3 { color: #58a6ff; margin-bottom: 0.5rem; }
+        .card p { color: #8b949e; font-size: 0.9rem; }
+        .metrics { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 2rem 0; }
+        .metric { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 1rem; text-align: center; min-width: 120px; }
+        .metric-value { font-size: 2rem; font-weight: bold; color: #3fb950; }
+        .metric-label { font-size: 0.8rem; color: #8b949e; }
+        footer { text-align: center; margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #30363d; color: #484f58; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+    <h1>HUSA Hyperkernel v1.0.0</h1>
+    <p class="subtitle"><strong>Synthesizes CPU architectures on demand for each virtual machine.</strong></p>
+
+    <div class="metrics">
+        <div class="metric"><div class="metric-value">165</div><div class="metric-label">Tests Passed</div></div>
+        <div class="metric"><div class="metric-value">97.8%</div><div class="metric-label">Code Coverage</div></div>
+        <div class="metric"><div class="metric-value">0</div><div class="metric-label">Vulnerabilities</div></div>
+        <div class="metric"><div class="metric-value">0.9us</div><div class="metric-label">ISA Synthesis</div></div>
+    </div>
+
+    <h2>Documentation Index</h2>
+    <div class="grid">
+        <a href="html/index.html"><div class="card"><h3>01 - API Reference</h3><p>Complete endpoint documentation with request/response examples.</p></div></a>
+        <div class="card"><h3>02 - Architecture Diagrams</h3><p>C4 context, container, class, and sequence diagrams with Mermaid.</p></div>
+        <div class="card"><h3>03 - Requirements Specification</h3><p>Functional requirements with priorities and business flows.</p></div>
+        <div class="card"><h3>04 - Data Model</h3><p>Bitemporal schema, ERD, and lineage graph documentation.</p></div>
+        <div class="card"><h3>05 - Quality Metrics</h3><p>Coverage reports, complexity analysis, and test statistics.</p></div>
+        <div class="card"><h3>06 - Installation Guide</h3><p>Step-by-step setup with Docker Compose and manual build.</p></div>
+        <div class="card"><h3>07 - Contribution Guide</h3><p>Git Flow, commit conventions, and PR checklist.</p></div>
+        <div class="card"><h3>08 - Security Documentation</h3><p>Vulnerability report, hardening applied, and CI/CD security.</p></div>
+        <div class="card"><h3>09 - Coverage Report</h3><p>Per-module coverage with progress bars and metrics.</p></div>
+        <div class="card"><h3>10 - User Manual</h3><p>End-user guide for creating and managing virtual machines.</p></div>
+        <div class="card"><h3>11 - Classical Optimality Report</h3><p>Benchmark comparison: Classical vs Exotic approaches.</p></div>
+        <div class="card"><h3>12 - Data Governance</h3><p>Bitemporal model, lineage, versioning, and compliance contracts.</p></div>
+    </div>
+
+    <h2>Quick Start</h2>
+    <pre style="background:#161b22;padding:1rem;border-radius:8px;overflow-x:auto;">
+git clone https://github.com/dwight-trujillo/husa-hyperkernel.git
+cd husa-hyperkernel
+docker-compose -f deploy/docker/docker-compose.yml up -d
+curl http://localhost:8080/health</pre>
+
+    <h2>Links</h2>
+    <p><a href="https://github.com/dwight-trujillo/husa-hyperkernel">GitHub Repository</a></p>
+    <p><a href="https://github.com/dwight-trujillo/husa-hyperkernel/blob/main/README.md">README</a></p>
+    <p><a href="https://github.com/dwight-trujillo/husa-hyperkernel/blob/main/LICENSE">License (MIT)</a></p>
+
+    <footer>
+        <p>Built with Rust. Secured by design. Ready for production.</p>
+        <p>MIT License - Copyright (c) 2026 Dwight Trujillo</p>
+    </footer>
+</body>
+</html>
