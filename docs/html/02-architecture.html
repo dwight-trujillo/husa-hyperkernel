@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUSA Architecture</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.6;padding:2rem;max-width:1000px;margin:0 auto}
+        h1,h2{color:#58a6ff}
+        h1{border-bottom:2px solid #30363d;padding-bottom:.5rem;margin-bottom:1.5rem}
+        h2{margin:2rem 0 1rem}
+        pre{background:#fff;padding:1rem;border-radius:8px;overflow-x:auto;margin:1rem 0}
+        a{color:#58a6ff}
+    </style>
+</head>
+<body>
+    <p><a href="../index.html">Home</a></p>
+    <h1>HUSA Architecture Diagrams</h1>
+
+    <h2>1. System Context (C4 Level 1)</h2>
+    <pre>
+[Administrator] --> [HUSA Hyperkernel]
+[VMware vCenter] --> [HUSA Hyperkernel]
+[libvirt/KVM] --> [HUSA Hyperkernel]
+[HUSA Hyperkernel] --> [PostgreSQL 17]
+[HUSA Hyperkernel] --> [NATS JetStream]
+[HUSA Hyperkernel] --> [Redis 7.4]
+[HUSA Hyperkernel] --> [FPGA Cluster]
+    </pre>
+
+    <h2>2. Domain Architecture</h2>
+    <pre>
+src/
+  domain/
+    synthesis/     - ISA profile synthesis engine
+    memory/        - Molecular memory partitioner
+    storage/       - Spectral storage manager
+    checkpointing/ - Organic checkpoint engine
+    governance/    - Bitemporal data governor
+    vm/            - VirtualMachine aggregate root
+    events/        - Domain events
+    zero_trust/    - Syscall inspection policies
+  application/
+    vm_lifecycle/  - CreateVM, ManageVM use cases
+  infrastructure/
+    synthesis/     - JIT cache synthesizer
+    persistence/   - PostgreSQL bitemporal repository
+    event_bus/     - NATS JetStream implementation
+    checkpointing/ - Organic checkpointer
+    zero_trust/    - eBPF syscall inspector
+    compatibility/ - vSphere + libvirt drivers
+    security/      - TLS, JWT, rate limiting
+    </pre>
+
+    <h2>3. Clean Architecture Layers</h2>
+    <pre>
+[Domain Layer] (zero dependencies)
+      ^
+[Application Layer] (use cases)
+      ^
+[Interface Layer] (traits/ports)
+      ^
+[Infrastructure Layer] (concrete implementations)
+    </pre>
+
+    <h2>4. Bounded Contexts</h2>
+    <pre>
+1. Synthesis Engine    - ISA profile management
+2. Memory Partitioner  - Molecular memory allocation
+3. Storage Spectrum    - Multi-tier storage
+4. Checkpoint Engine   - Organic state capture
+5. Data Governor       - Bitemporal + lineage
+6. Zero Trust          - Syscall inspection
+    </pre>
+</body>
+</html>

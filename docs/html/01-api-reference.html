@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUSA API Reference</title>
+    <style>
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d1117;color:#c9d1d9;line-height:1.6;padding:2rem;max-width:1000px;margin:0 auto}
+        h1,h2{color:#58a6ff}
+        h1{border-bottom:2px solid #30363d;padding-bottom:.5rem;margin-bottom:1.5rem}
+        h2{margin:2rem 0 1rem}
+        .endpoint{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:1.5rem;margin:1rem 0}
+        .method{display:inline-block;padding:.25em .75em;border-radius:4px;font-weight:700;font-size:.85em;margin-right:.5rem}
+        .get{background:#1b5e20;color:#81c784}
+        .post{background:#0d47a1;color:#64b5f6}
+        .delete{background:#b71c1c;color:#ef9a9a}
+        pre{background:#0d1117;padding:1rem;border-radius:8px;overflow-x:auto;margin:1rem 0;border:1px solid #30363d}
+        code{font-family:'Fira Code',monospace;font-size:.9em}
+        table{width:100%;border-collapse:collapse;margin:1rem 0}
+        th,td{padding:.75rem;text-align:left;border:1px solid #30363d}
+        th{background:#161b22}
+        a{color:#58a6ff}
+    </style>
+</head>
+<body>
+    <p><a href="../index.html">Home</a></p>
+    <h1>HUSA API Reference v1.0.0</h1>
+    <p>Base URL: <code>http://localhost:8080/api/v1</code></p>
+
+    <h2>Authentication</h2>
+    <p>All requests require: <code>Authorization: Bearer JWT_TOKEN</code></p>
+
+    <div class="endpoint">
+        <h3><span class="method post">POST</span> /vms</h3>
+        <p><strong>Create a new synthetic VM.</strong></p>
+        <h4>Request Body</h4>
+        <table>
+            <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+            <tr><td>name</td><td>string</td><td>Yes</td><td>VM name (3-255 chars)</td></tr>
+            <tr><td>workload_hint</td><td>string</td><td>Yes</td><td>web-server, database, generic</td></tr>
+            <tr><td>architecture</td><td>string</td><td>No</td><td>X86_64, Aarch64, RiscV64</td></tr>
+            <tr><td>memory_bytes</td><td>uint64</td><td>Yes</td><td>RAM in bytes</td></tr>
+            <tr><td>storage_bytes</td><td>uint64</td><td>Yes</td><td>Storage in bytes</td></tr>
+            <tr><td>vcpu_count</td><td>uint8</td><td>Yes</td><td>1-512</td></tr>
+            <tr><td>enable_checkpointing</td><td>bool</td><td>No</td><td>Default: false</td></tr>
+        </table>
+        <pre><code>curl -X POST http://localhost:8080/api/v1/vms \
+  -H "Authorization: Bearer TOKEN" \
+  -d '{"name":"my-vm","workload_hint":"web-server","memory_bytes":536870912,"storage_bytes":10737418240,"vcpu_count":4}'</code></pre>
+    </div>
+
+    <div class="endpoint">
+        <h3><span class="method get">GET</span> /vms</h3>
+        <p><strong>List all VMs.</strong> Pagination: offset, limit. Filter: state.</p>
+    </div>
+
+    <div class="endpoint">
+        <h3><span class="method get">GET</span> /vms/{id}</h3>
+        <p><strong>Get VM by ID.</strong> Returns 404 if not found, 410 if GDPR-erased.</p>
+    </div>
+
+    <div class="endpoint">
+        <h3><span class="method post">POST</span> /vms/{id}/transition</h3>
+        <p><strong>Change VM state.</strong> Valid transitions: Running-Paused, Paused-Running, Running-Stopped, Stopped-Destroyed.</p>
+    </div>
+
+    <div class="endpoint">
+        <h3><span class="method delete">DELETE</span> /vms/{id}</h3>
+        <p><strong>GDPR soft delete.</strong> Data preserved for audit trail.</p>
+    </div>
+
+    <div class="endpoint">
+        <h3><span class="method get">GET</span> /health</h3>
+        <p><strong>System health check.</strong> No authentication required.</p>
+    </div>
+</body>
+</html>
