@@ -129,39 +129,5 @@ Email: architecture@husa-hyperkernel.dev
 
 Built with Rust. Secured by design. Ready for production.
 
----
-
-<div align="center">
-
-### ✨ Support / Apoya ✨
-
-<sub>*Binance donation — powered by gratitude*</sub>
-
-<br>
-
-🙏 **Gracias por tu generosidad** · 🤝 **Thank you for your kindness**  
-💛 Cada aporte impulsa el proyecto · 🚀 *Every contribution fuels the mission*
-
-<br>
-
-| 🆔 Binance UID | 📧 Email (Binance Pay) |
-|:---:|:---:|
-| `1208211865` | `dwighttrujillo@gmail.com` |
-| <sub>ID único · transferencias directas</sub> | <sub>asociado a cuenta Binance</sub> |
-
-<br>
-
-**🪙 Criptomonedas aceptadas**
-
-| 💎 USDT | ₿ BTC | 🔶 BNB | ⬟ ETH |
-|:---:|:---:|:---:|:---:|
-| BEP20/TRC20/ERC20 | Bitcoin | BSC (BEP-20) | ERC20 |
-
-<br>
-
-<sub>📌 Transferencias internas por UID o email · 🔒 Verifica la red antes de enviar</sub><br>
-<sub>💙 Gracias por apoyar · Thanks for supporting</sub>
-
-</div>
 
 ---
